@@ -4,6 +4,7 @@
 #include "Engine/Engine.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "InputAction.h"
+#include "Perception/AISense_Hearing.h"
 
 AHomeworkCharacter::AHomeworkCharacter()
 {
@@ -24,6 +25,11 @@ void AHomeworkCharacter::Tick(float DeltaTime)
 
     if (bIsSprinting)
     {
+        if (GetVelocity().SizeSquared2D() > 100.0f && GetWorld()->GetTimeSeconds() >= NextNoiseTime)
+        {
+            UAISense_Hearing::ReportNoiseEvent(this, GetActorLocation(), 1.0f, this, 2200.0f, TEXT("Sprint"));
+            NextNoiseTime = GetWorld()->GetTimeSeconds() + 0.6f;
+        }
         Stamina = FMath::Max(0.0f, Stamina - StaminaDrainRate * DeltaTime);
 
         if (Stamina <= 0.0f)

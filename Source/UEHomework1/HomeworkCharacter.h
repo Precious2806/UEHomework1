@@ -51,6 +51,7 @@ protected:
 
 private:
     float WalkSpeed = 600.0f;
+    float NextNoiseTime = 0.0f;
 
     void StartSprint();
     void StopSprint();

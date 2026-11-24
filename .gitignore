@@ -1,4 +1,3 @@
-# Unreal Engine
 .vs/
 .idea/
 .DS_Store
@@ -43,7 +42,6 @@ Build/*/**
 !Build/**/*.ico
 *_BuiltData.uasset
 
-# Local copies and setup files
 UEHomework1_CodeBackup_*/
 UEHomework1_SubmissionBackup_*/
 [Bb]ackup/
@@ -56,3 +54,5 @@ UEHomework1_Code*.zip
 *.bak
 *.backup
 *~
+
+/PROGRESS.md
